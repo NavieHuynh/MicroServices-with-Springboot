@@ -3,7 +3,7 @@ package com.samplerest.restfulwebservices.post;
 import java.util.Date;
 import java.util.List;
 
-public class Post {
+public class Post_V1 {
 	private Integer id;
 	private String message;
 	private Integer likes;
@@ -46,9 +46,9 @@ public class Post {
 	public void setLikes(Integer likes) {
 		this.likes = likes;
 	}
-	protected Post() {}
+	protected Post_V1() {}
 	
-	public Post(Integer id, String message, Integer likes,  Integer userid, Date date) {
+	public Post_V1(Integer id, String message, Integer likes,  Integer userid, Date date) {
 		super();
 		this.id = id;
 		this.message = message;

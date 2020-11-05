@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.samplerest.restfulwebservices.post.Post;
+import com.samplerest.restfulwebservices.post.Post_V1;
 import com.samplerest.restfulwebservices.post.PostDaoService;
 import com.samplerest.restfulwebservices.post.PostNotFoundException;
 
@@ -38,8 +38,8 @@ public class UserResource {
 		return findOne;
 	}
 	
-	private Post findPost(int userId, int postId) {
-		Post findPost = postService.findUserPost(userId, postId);
+	private Post_V1 findPost(int userId, int postId) {
+		Post_V1 findPost = postService.findUserPost(userId, postId);
 		
 		if(findPost==null)
 			throw new PostNotFoundException("userId-"+userId+" postId-"+postId);
@@ -85,20 +85,20 @@ public class UserResource {
 	}
 	
 	@GetMapping(path="/users/{userId}/posts")
-	public List<Post> retrieveUserPosts(@PathVariable int userId) {
+	public List<Post_V1> retrieveUserPosts(@PathVariable int userId) {
 		User user = findUser(userId);
 		return postService.findUserPosts(user.getId());
 	}
 	
 	@GetMapping(path="/users/{userId}/posts/{postId}")
-	public Post retrieveUserPost(@PathVariable int userId, @PathVariable int postId) {
+	public Post_V1 retrieveUserPost(@PathVariable int userId, @PathVariable int postId) {
 		User user = findUser(userId);
 		return findPost(user.getId(),postId);
 	}
 	
-	@PostMapping(path="users/{userId}/posts")
-	public ResponseEntity<Object> createPost(@RequestBody Post post){
-		Post savedPost = postService.save(post);
+	@PostMapping(path="/users/{userId}/posts")
+	public ResponseEntity<Object> createPost(@RequestBody Post_V1 post){
+		Post_V1 savedPost = postService.save(post);
 		
 		URI location = ServletUriComponentsBuilder
 				.fromCurrentRequest()

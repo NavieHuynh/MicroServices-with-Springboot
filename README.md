@@ -1,40 +1,37 @@
 # RestfulServices-with-Springboot
 Portfolio project to demonstrate application of building Restful services.
 
-## API Principles applied: 
+## API Features: 
 - Custom Exception Handling 
-- DAO for Database access 
+- DAO Services for Database access
 - Resource controllers 
 - Resource Models with Data Validation
-- XML Support
+- JSON/XML Support
 - Swagger2 Documentation -> GET /swagger-ui/index.html
 - Versioning via URI, parameters, headers and content negotitation
 - API Monitoring using Hal Browser
 - Static/Dynamic data filtering
 - Basic User Authentication
+- H2 Database with JPA to retrieve information 
 
 ## User Resources:
-- GET /users -> retrieves all users
-- POST /users -> creates new user with simple data validation for request body
-- GET /users/{user_id} -> get user data
-- GET /users/{user_id}/posts -> get user posts
-- GET /users/{user_id}/posts/{post_id} -> get user post
-- POST /users/{user_id}/posts -> create new post
+- GET /users -> retrieves all users from UserDaoService
+- POST /users -> creates new user with simple data validation for request body from UserDaoService
+- GET /users/{user_id} -> get user data from UserDaoService
+- GET /users/{user_id}/posts -> get user posts from UserDaoService
+- GET /users/{user_id}/posts/{post_id} -> get user post from UserDaoService
+- POST /users/{user_id}/posts -> create new post from UserDaoService
+- GET /jpa/users -> retrieves all users from H2 Database
+- POST /jpa/users -> creates new user with simple data validation for request body from H2 Database
+- GET /jpa/users/{user_id} -> get user data from H2 Database
+- GET /jpa/users/{user_id}/posts -> get user posts from H2 Database
+- GET /jpa/users/{user_id}/posts/{post_id} -> get user post from H2 Database
+- POST /jpa/users/{user_id}/posts -> create new post from H2 Database
 
-## User DAO service features:
-- retrieve all users
-- retrieve user by user_id
-- retrieve users posts (all)
-- retrieve users post (by post_id)
-- delete user
-- array as storage for testing purposes
 
-## Post DAO Service features:
-- retrieve all posts
-- create new post
-- retrieve posts by user_id
-- retrieve post by user_id and post_id
 
 ## Backlog
 - Implement Post Resources
 - Update Swagger Documentation with 3.0
+- Add Exception handling to JPA Endpoints
+- Add Validation for JPA Endpoints
