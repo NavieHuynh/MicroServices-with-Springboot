@@ -13,20 +13,6 @@ API Principles applied:
 - Static/Dynamic data filtering
 - Basic User Authentication
 
-User Model params:
-- int id
-- str firstName - min_length = 2
-- str lastName - min_length = 2
-- date birthDate - Date must be Past not Future
-
-The User DAO service features:
-- retrieve all users
-- retrieve user by user_id
-- retrieve users posts (all)
-- retrieve users post (by post_id)
-- delete user
-- array as storage for testing purposes
-
 User Resources:
 - GET /users -> retrieves all users
 - POST /users -> creates new user with simple data validation for request body
@@ -35,12 +21,13 @@ User Resources:
 - GET /users/{user_id}/posts/{post_id} -> get user post
 - POST /users/{user_id}/posts -> create new post
 
-Post Model params:
-- int id 
-- str message
-- int likes
-- date postdate
-- int userid
+The User DAO service features:
+- retrieve all users
+- retrieve user by user_id
+- retrieve users posts (all)
+- retrieve users post (by post_id)
+- delete user
+- array as storage for testing purposes
 
 Post DAO Service features:
 - retrieve all posts
